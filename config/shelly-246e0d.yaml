@@ -1,7 +1,6 @@
+<<: !include common/shelly_v1.yaml
+
 # hwr-licht
 substitutions:
   devicename: shelly_246e0d
   name: Shelly 246e0d
-
-<<: !include common/_base.yaml
-<<: !include common/shelly/v1.yaml

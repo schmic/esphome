@@ -1,8 +1,7 @@
+<<: !include common/d1_mini.yaml
+<<: !include common/fastled.yaml
+
 substitutions:
   devicename: led_strip_treppe
   name: Strip Treppe
   num_leds: "134"
-
-<<: !include common/_base.yaml
-<<: !include common/d1_mini.yaml
-<<: !include common/fastled.yaml

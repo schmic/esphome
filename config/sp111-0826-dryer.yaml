@@ -1,7 +1,6 @@
+<<: !include common/sp111.yaml
+
 # Dryer, 0826
 substitutions:
   devicename: sp111_0826
   name: SP111 0826
-
-<<: !include common/_base.yaml
-<<: !include common/sp111.yaml

@@ -1,3 +1,5 @@
+<<: !include _base.yaml
+
 esphome:
   name: $devicename
   platform: ESP8266

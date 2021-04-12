@@ -19,3 +19,10 @@ web_server:
 
 mqtt:
   broker: !secret mqtt_broker
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Berlin
+    update_interval: 3600s
+  

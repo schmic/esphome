@@ -1,12 +1,9 @@
+<<: !include _base.yaml
+
 esphome:
-  name: ${devicename}
+  name: $devicename
   platform: ESP8266
   board: esp8285
-
-time:
-  - platform: sntp
-    id: sntp_time
-    timezone: Europe/Berlin
 
 binary_sensor:
   - platform: gpio

@@ -1,7 +1,6 @@
+<<: !include common/sp111.yaml
+
 # Lampe EsZi
 substitutions:
   devicename: sp111_4358
   name: SP111 4358
-
-<<: !include common/_base.yaml
-<<: !include common/sp111.yaml

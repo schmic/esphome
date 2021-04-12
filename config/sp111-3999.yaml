@@ -1,7 +1,6 @@
+<<: !include common/sp111.yaml
+
 # Lampe WoZi
 substitutions:
   devicename: sp111_3999
   name: SP111 3999
-
-<<: !include common/_base.yaml
-<<: !include common/sp111.yaml

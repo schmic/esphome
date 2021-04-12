@@ -1,7 +1,6 @@
+<<: !include common/sonoff_basic.yaml
+
 # printer
 substitutions:
   devicename: sonoff_0242
   name: Sonoff 0242
-
-<<: !include common/_base.yaml
-<<: !include common/sonoff/basic.yaml

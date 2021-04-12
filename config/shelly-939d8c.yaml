@@ -1,7 +1,6 @@
+<<: !include common/shelly_v1.yaml
+
 # flur eg licht
 substitutions:
   devicename: shelly_939d8c
   name: Shelly 939D8C
-
-<<: !include common/_base.yaml
-<<: !include common/shelly/v1.yaml

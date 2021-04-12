@@ -1,6 +1,5 @@
+<<: !include common/obi_socket.yaml
+
 substitutions:
   devicename: obi_hwr_tisch
   name: PC
-
-<<: !include common/_base.yaml
-<<: !include common/obi_socket.yaml

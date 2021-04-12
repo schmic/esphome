@@ -1,7 +1,7 @@
 <<: !include _base.yaml
 
 esphome:
-  name: ${devicename}
+  name: $devicename
   platform: ESP8266
   board: esp01_1m
   
@@ -30,7 +30,7 @@ binary_sensor:
       code: [ -9052, 4434, -636, 523, -636, 492, -603, 526, -608, 522, -606, 523, -608, 520, -606, 522, -600, 529, -610, 1594, -633, 1602, -638, 1595, -631, 1601, -628, 1606, -635, 1600, -636, 1595, -637, 1597, -634, 1600, -637, 521, -604, 1600, -637, 1596, -638, 520, -609, 521, -606, 523, -634, 494, -610, 518, -608, 1597, -638, 520, -607, 521, -607, 1597, -635, 1598, -636, 1599, -665, 1568, -644 ]
     on_press:
       then:
-        - light.turn_on: ${devicename}
+        - light.turn_on: $devicename
 
   - platform: remote_receiver
     name: "Remote OFF"
@@ -38,7 +38,7 @@ binary_sensor:
       code: [ -9008, 4482, -600, 531, -565, 564, -591, 536, -568, 564, -593, 537, -597, 529, -597, 531, -596, 534, -596, 1639, -597, 1635, -597, 1638, -598, 1638, -591, 1644, -568, 1665, -592, 1642, -566, 1670, -592, 1640, -595, 1639, -592, 1643, -567, 1665, -596, 1640, -597, 532, -595, 533, -594, 536, -596, 534, -597, 530, -567, 563, -568, 561, -599, 529, -568, 1667, -593, 1642, -591, 1642, -597 ]
     on_press:
       then:
-        - light.turn_off: ${devicename}
+        - light.turn_off: $devicename
 
   - platform: remote_receiver
     name: "Remote BRIGHTUP"
@@ -47,7 +47,7 @@ binary_sensor:
     on_press:
       then:
         - light.dim_relative:
-            id: ${devicename}
+            id: $devicename
             relative_brightness: 5%
 
   - platform: remote_receiver
@@ -57,7 +57,7 @@ binary_sensor:
     on_press:
       then:
         - light.dim_relative:
-            id: ${devicename}
+            id: $devicename
             relative_brightness: -5%
 
   - platform: remote_receiver
@@ -67,7 +67,7 @@ binary_sensor:
     on_press:
       then:
         - light.turn_on:
-            id: ${devicename}
+            id: $devicename
             red: 100%
             green: 0%
             blue: 0%
@@ -81,7 +81,7 @@ binary_sensor:
     on_press:
       then:
         - light.turn_on:
-            id: ${devicename}
+            id: $devicename
             red: 0%
             green: 100%
             blue: 0%
@@ -95,7 +95,7 @@ binary_sensor:
     on_press:
       then:
         - light.turn_on:
-            id: ${devicename}
+            id: $devicename
             red: 0%
             green: 0%
             blue: 100%
@@ -109,7 +109,7 @@ binary_sensor:
     on_press:
       then:
         - light.turn_on:
-            id: ${devicename}
+            id: $devicename
             red: 0%
             green: 0%
             blue: 0%
@@ -123,7 +123,7 @@ binary_sensor:
     on_press:
       then:
         - light.turn_on:
-             id: ${devicename}
+             id: $devicename
              effect: "In Alarm"
 
   - platform: remote_receiver
@@ -133,13 +133,13 @@ binary_sensor:
     on_press:
       then:
         - light.turn_on:
-             id: ${devicename}
+             id: $devicename
              effect: "Default Strobe"
 
 light:
   - platform: rgbw
     name: ${name}
-    id: ${devicename}
+    id: $devicename
     restore_mode: ALWAYS_OFF 
     red: red_channel
     green: green_channel
