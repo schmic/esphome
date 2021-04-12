@@ -1,0 +1,8 @@
+substitutions:
+  devicename: led_vorhang_buro
+  name: Vorhang Büro
+  num_leds: "54"
+
+<<: !include common/_base.yaml
+<<: !include common/d1_mini.yaml
+<<: !include common/fastled.yaml

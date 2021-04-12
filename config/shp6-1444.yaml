@@ -1,0 +1,6 @@
+substitutions:
+  devicename: shp6_1444
+  name: SHP6 1444
+
+<<: !include common/_base.yaml
+<<: !include common/bw-shp6.yaml

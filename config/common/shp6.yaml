@@ -1,0 +1,76 @@
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: esp8285
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Berlin
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+      inverted: True
+    name: "${name} Button"
+    on_press:
+      then:
+        - switch.toggle: "${devicename}_relay"
+
+switch:
+  - platform: gpio
+    name:  "${name} Relay"
+    id: "${devicename}_relay"
+    pin: GPIO15
+    restore_mode: RESTORE_DEFAULT_OFF
+  - platform: gpio
+    name: "${name} LED Blue"
+    pin: GPIO2
+    inverted: True
+    restore_mode: ALWAYS_OFF
+  - platform: gpio
+    name: "${name} LED Red"
+    pin: GPIO0
+    inverted: True
+    restore_mode: ALWAYS_OFF
+
+sensor:
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "${name} - Uptime"
+    icon: mdi:clock-outline
+    update_interval: 60s
+    
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: True
+    cf_pin: GPIO05
+    cf1_pin: GPIO14
+    current_resistor: "0.00221"
+    voltage_divider: "955"
+    current:
+      name: "${name} Amperage"
+      unit_of_measurement: A
+    voltage:
+      name: "${name} Voltage"
+      unit_of_measurement: V
+    power:
+      name: "${name} Wattage"
+      unit_of_measurement: W
+      id: "${devicename}_wattage"
+    change_mode_every: 8
+    update_interval: 10s
+
+  - platform: total_daily_energy
+    name: "${name} Total Daily Energy"
+    power_id: "${devicename}_wattage"
+    filters:
+        # Multiplication factor from W to kW is 0.001
+        - multiply: 0.001
+    unit_of_measurement: kWh
+      

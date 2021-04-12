@@ -1,0 +1,8 @@
+substitutions:
+  devicename: led_lampe_buro
+  name: Lampe Büro
+  num_leds: "32"
+
+<<: !include common/_base.yaml
+<<: !include common/d1_mini.yaml
+<<: !include common/fastled.yaml

@@ -1,0 +1,30 @@
+<<: !include common/magichome_rgbw.yaml
+
+substitutions:
+  devicename: led_frame_buro
+  name: LED Rahmen Büro
+
+# esphome:
+#   name: $devicename
+#   platform: ESP8266
+#   board: esp01_1m
+
+# <<: !include common/_base.yaml
+
+# light:
+#   - platform: rgb
+#     name: $name
+#     red: red_channel
+#     green: green_channel
+#     blue: blue_channel
+
+# output:
+#   - platform: esp8266_pwm
+#     id: red_channel
+#     pin: GPIO5
+#   - platform: esp8266_pwm
+#     id: blue_channel
+#     pin: GPIO12
+#   - platform: esp8266_pwm
+#     id: green_channel
+#     pin: GPIO14

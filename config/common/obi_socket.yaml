@@ -1,0 +1,49 @@
+<<: !include _base.yaml
+
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: esp01_1m
+
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Berlin
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO14
+    name: $name button
+    filters:
+      - invert:
+    on_press:
+      - switch.toggle: "${devicename}_relay"
+
+switch:
+  - platform: gpio
+    name: "${name} Relay"
+    id: "${devicename}_relay"
+    pin: GPIO5
+    restore_mode: RESTORE_DEFAULT_OFF
+
+  - platform: gpio
+    name: "${name} LED Blue"
+    pin: GPIO4
+    inverted: True
+    restore_mode: RESTORE_DEFAULT_OFF
+
+sensor:
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "${name} - Uptime"
+    icon: mdi:clock-outline
+    update_interval: 60s
+
+status_led:
+  pin:
+    number: GPIO12
+    inverted: yes

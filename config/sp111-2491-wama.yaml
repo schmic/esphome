@@ -1,0 +1,7 @@
+# Washing Machine
+substitutions:
+  devicename: sp111_2491
+  name: SP111 2491
+
+<<: !include common/_base.yaml
+<<: !include common/sp111.yaml

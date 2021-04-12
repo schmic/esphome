@@ -1,0 +1,28 @@
+{
+    "files.watcherExclude": {
+        "**/.platformio": true,
+        "**/.pioenvs": true,
+        "**/.piolibdeps": true,
+        "**/lib": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.platformio": true,
+        "**/.pioenvs": true,
+        "**/.piolibdeps": true,
+        "**/lib": true,
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/.platformio": true,
+        "**/.pioenvs": true,
+        "**/.piolibdeps": true,
+        "**/lib": true,
+    },
+}

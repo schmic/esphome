@@ -1,0 +1,19 @@
+light:
+  - platform: fastled_clockless
+    chipset: WS2812B
+    pin: GPIO15
+    num_leds: $num_leds
+    rgb_order: GRB
+    name: "$name"
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+      - random:
+          name: "My Slow Random Effect"
+          transition_length: 30s
+          update_interval: 30s
+      - random:
+          name: "My Fast Random Effect"
+          transition_length: 4s
+          update_interval: 5s
+          

@@ -1,0 +1,21 @@
+wifi:
+  ssid: !secret wlan_ssid
+  password: !secret wlan_password
+  domain: !secret wlan_domain
+  fast_connect: true
+  ap:
+    ssid: "Fallback $name"
+    password: !secret wlan_fallback_password
+
+captive_portal:
+
+logger:
+  baud_rate: 0 #disable UART logging
+
+ota:
+
+web_server:
+  port: 80
+
+mqtt:
+  broker: !secret mqtt_broker

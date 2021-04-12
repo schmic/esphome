@@ -1,0 +1,89 @@
+esphome:
+  name: ${devicename}
+  platform: ESP8266
+  board: esp8285
+      
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: Europe/Berlin
+
+binary_sensor:
+  - platform: gpio
+    name: $name button
+    pin:
+      number: GPIO13
+      inverted: true
+    on_press:
+      - switch.toggle: relay
+
+switch:
+  - platform: gpio
+    id: relay
+    name: $name
+    pin: GPIO15
+    restore_mode: RESTORE_DEFAULT_ON
+    on_turn_on:
+      - light.turn_on: led
+    on_turn_off:
+      - light.turn_off: led    
+
+sensor:
+  - platform: wifi_signal
+    name: "${name} - WiFi Signal"
+    update_interval: 60s
+
+  - platform: uptime
+    name: "${name} - Uptime"
+    icon: mdi:clock-outline
+    update_interval: 60s
+  
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO05
+    cf1_pin: GPIO14
+    current_resistor: "0.00280"
+    voltage_divider: "775"
+    change_mode_every: 4
+    update_interval: 3s
+    current:
+      name: "${name} Amperage"
+      unit_of_measurement: A
+      accuracy_decimals: 3
+    voltage:
+      name: "${name} Voltage"
+      unit_of_measurement: V
+      accuracy_decimals: 0
+    power:
+      name: "${name} Wattage"
+      unit_of_measurement: W
+      accuracy_decimals: 0
+      id: "${devicename}_wattage"
+
+  - platform: total_daily_energy
+    name: "${name} Total Daily Energy"
+    power_id: "${devicename}_wattage"
+    filters:
+        # Multiplication factor from W to kW is 0.001
+        - multiply: 0.001
+    unit_of_measurement: kWh
+    
+status_led:
+  pin:
+    number: GPIO0
+    inverted: true
+
+output:
+  - platform: esp8266_pwm
+    id: state_led
+    pin:
+      number: GPIO2
+      inverted: true
+      
+light:
+  - platform: monochromatic
+    output: state_led
+    id: led
+  

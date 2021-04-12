@@ -1,0 +1,6 @@
+# 1 - ?
+substitutions:
+  devicename: obi_3153b9
+  name:  OBI 3153b9
+
+<<: !include common/obi_socket.yaml

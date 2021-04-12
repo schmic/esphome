@@ -1,0 +1,7 @@
+# 2 - HWR
+substitutions:
+  devicename: obi_51a269
+  name:  OBI 51a269
+
+<<: !include common/_base.yaml
+<<: !include common/obi_socket.yaml
